@@ -161,4 +161,4 @@ Response :
 ```
 
 ## References
-- [API Spec by ProgrammerZamanNow](https://github.com/ProgrammerZamanNow)
+- API Spec by [ProgrammerZamanNow](https://github.com/ProgrammerZamanNow)
