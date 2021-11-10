@@ -162,3 +162,4 @@ Response :
 
 ## References
 - API Spec by [ProgrammerZamanNow](https://github.com/ProgrammerZamanNow)
+- Markdown Cheatsheet by [Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
