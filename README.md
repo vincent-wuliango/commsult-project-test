@@ -19,7 +19,7 @@ Request :
 - Body :
 ```json
 {
-    "id" : "bigint, unique, auto increment",
+    "id" : "bigint, not null, auto increment",
     "name" : "varchar(100)",
     "quantity" : "bigint, not null",
     "price" : "double, not null",
@@ -33,7 +33,7 @@ Response :
 {
     "code" : "number",
     "data" : {
-         "id" : "bigint, unique",
+         "id" : "bigint, not null",
          "name" : "string",
          "quantity" : "bigint",
          "price" : "double",
@@ -58,7 +58,7 @@ Response :
 {
     "code" : "number",
     "data" : {
-         "id" : "bigint, unique",
+         "id" : "bigint, not null",
          "name" : "string",
          "quantity" : "bigint",
          "price" : "double",
@@ -94,7 +94,7 @@ Response :
 {
     "code" : "number",
     "data" : {
-         "id" : "bigint, unique",
+         "id" : "bigint, not null",
          "name" : "string",
          "quantity" : "bigint",
          "price" : "double",
@@ -123,7 +123,7 @@ Response :
     "code" : "number",
     "data" : [
         {
-             "id" : "bigint, unique",
+             "id" : "bigint, not null",
              "name" : "string",
              "quantity" : "bigint",
              "price" : "double",
@@ -132,7 +132,7 @@ Response :
              "updatedAt" : "date"
         },
         {
-             "id" : "bigint, unique",
+             "id" : "bigint, not null",
              "name" : "string",
              "quantity" : "bigint",
              "price" : "double",
