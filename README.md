@@ -21,8 +21,8 @@ Request :
 {
     "id" : "bigint, unique, auto increment",
     "name" : "varchar(100)",
-    "quantity" : "bigint, not null",
     "price" : "double, not null",
+    "quantity" : "bigint, not null",
     "description" : "string"
 }
 ```
@@ -35,8 +35,8 @@ Response :
     "data" : {
          "id" : "bigint, unique",
          "name" : "string",
-         "price" : "double",
          "quantity" : "bigint",
+         "price" : "double",
          "description" : "string",
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -60,8 +60,8 @@ Response :
     "data" : {
          "id" : "bigint, unique",
          "name" : "string",
-         "price" : "double",
          "quantity" : "bigint",
+         "price" : "double",
          "description" : "string",
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -82,8 +82,8 @@ Request :
 ```json 
 {
      "name" : "string",
-     "price" : "double",
      "quantity" : "bigint",
+     "price" : "double",
      "description" : "string",
 }
 ```
@@ -96,8 +96,8 @@ Response :
     "data" : {
          "id" : "bigint, unique",
          "name" : "string",
-         "price" : "double",
          "quantity" : "bigint",
+         "price" : "double",
          "description" : "string",
          "createdAt" : "date",
          "updatedAt" : "date"
@@ -125,8 +125,8 @@ Response :
         {
              "id" : "bigint, unique",
              "name" : "string",
-             "price" : "double",
              "quantity" : "bigint",
+             "price" : "double",
              "description" : "string",
              "createdAt" : "date",
              "updatedAt" : "date"
@@ -134,8 +134,8 @@ Response :
         {
              "id" : "bigint, unique",
              "name" : "string",
-             "price" : "double",
              "quantity" : "bigint",
+             "price" : "double",
              "description" : "string",
              "createdAt" : "date",
              "updatedAt" : "date"
