@@ -21,8 +21,8 @@ Request :
 {
     "id" : "bigint, unique, auto increment",
     "name" : "varchar(100)",
-    "price" : "double, not null",
     "quantity" : "bigint, not null",
+    "price" : "double, not null",
     "description" : "string"
 }
 ```
