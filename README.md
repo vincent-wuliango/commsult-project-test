@@ -1,18 +1,7 @@
 # Commsult Project Test
-## API Spec
-## Authentication
+## UPDATE
+- Add frontend Next.js
 
-All API must use this authentication
 
-Request :
-
-Header :
-X-Api-Key : "your secret api key"
-
-## Create Product
-* Method : POST
-* Endpoint : /api/products
-* Header :
-  * Content-Type: application/json
-  * Accept: application/json
-* Body :
+## References
+- Markdown Cheatsheet by [Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
