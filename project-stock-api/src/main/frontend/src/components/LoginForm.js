@@ -11,8 +11,6 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import Layout from "./Layout"
-import {loginUser} from '../lib/auth';
 
 function Copyright(props) {
   return (
@@ -36,7 +34,6 @@ export default function LoginForm(props) {
     event.preventDefault();
     const user={email, password}
     console.log({user});
-    loginUser();
     // fetch("localhost:3030/users/login"), {
     //   method:"POST",
     //   headers:
@@ -69,7 +66,7 @@ export default function LoginForm(props) {
               alignItems: 'center',
             }}
           >
-            <Avatar alt="Commsult" src="/commsult-logo.png"
+            <Avatar alt="Commsult" src="../../favicon/commsult-logo.png"
             sx={{ width: 44, heigh: 32 }}>
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -133,7 +130,6 @@ export default function LoginForm(props) {
           </Box>
         </Grid>
       </Grid>
-      <Layout title={process.env.appName}/>
     </ThemeProvider>
   );
 }
