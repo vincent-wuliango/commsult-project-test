@@ -4,4 +4,4 @@
 
 
 ## References
-- Markdown Cheatsheet by [Adam Pritchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+- Markdown Cheatsheet by [Adam Priatchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
