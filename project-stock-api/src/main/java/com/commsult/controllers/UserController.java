@@ -1,20 +1,20 @@
 package com.commsult.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import com.commsult.dto.ResponseData;
 import com.commsult.dto.UserRequest;
+import com.commsult.dto.UserResponse;
 import com.commsult.models.entities.User;
-import com.commsult.models.repos.UserRepo;
 import com.commsult.services.UserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -37,9 +37,19 @@ public class UserController {
     private ModelMapper modelMapper;
 
     @GetMapping("/users")
-    public List<User> getAllUsers() {
-        return userService.findAll();
+    public ResponseEntity<ResponseData<List<UserResponse>>> getAllUsers() {
+        ResponseData<List<UserResponse>> responseData = new ResponseData<>();
+        List<UserResponse> listUser = new ArrayList<>();
+        userService.findAll().forEach(user -> {
+            listUser.add(modelMapper.map(user, UserResponse.class));
+        });
+        responseData.setStatus(true);
+        responseData.setPayload(listUser);
+        return ResponseEntity.ok(responseData);
     }
+    // public List<User> getAllUsers() {
+    //     return userService.findAll();
+    // }
 
     @GetMapping("/users/{id}")
     public User findUserById(@PathVariable("id") Long id) {
@@ -47,7 +57,7 @@ public class UserController {
     }
 
     @PostMapping("/users/register")
-    public ResponseEntity<ResponseData<User>> register(@Valid @RequestBody UserRequest userData, Errors errors) { 
+    public ResponseEntity<ResponseData<User>> register(@Valid @RequestBody UserRequest userRequest, Errors errors) { 
 
         ResponseData<User> responseData = new ResponseData<>();
 
@@ -60,7 +70,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
 
-        User user = modelMapper.map(userData, User.class);
+        User user = modelMapper.map(userRequest, User.class);
 
         responseData.setStatus(true);
         responseData.setPayload(userService.registerUser(user));
@@ -69,7 +79,7 @@ public class UserController {
     }
 
     @PutMapping("/users/update")
-    public ResponseEntity<ResponseData<User>> update(@Valid @RequestBody UserRequest userData, Errors errors) { 
+    public ResponseEntity<ResponseData<User>> update(@Valid @RequestBody UserRequest userRequest, Errors errors) { 
 
         ResponseData<User> responseData = new ResponseData<>();
 
@@ -82,7 +92,7 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(responseData);
         }
 
-        User user = modelMapper.map(userData, User.class);
+        User user = modelMapper.map(userRequest, User.class);
 
         responseData.setStatus(true);
         responseData.setPayload(userService.registerUser(user));

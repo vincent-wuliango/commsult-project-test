@@ -16,9 +16,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,7 +39,7 @@ public class StockController {
     private ModelMapper modelMapper;
 
     @GetMapping("/stocks")
-    public ResponseEntity<ResponseData<List<StockResponse>>> findAll() {
+    public ResponseEntity<ResponseData<List<StockResponse>>> getAllStocks() {
             ResponseData<List<StockResponse>> responseData = new ResponseData<>();
             List<StockResponse> listStock = new ArrayList<>();
             stockService.findAll().forEach(stock -> {
