@@ -12,12 +12,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
 @Table(name = "user")
+@SQLDelete(sql = "UPDATE user SET deleted = true WHERE user_id=?")
+@Where(clause = "deleted=false")
 public class User implements UserDetails {
     
     private static final long serialVersionUID = 1L;
@@ -46,6 +50,8 @@ public class User implements UserDetails {
         new SimpleGrantedAuthority(userRole.name());
         return Collections.singleton(authority);
     }
+
+    private boolean deleted = Boolean.FALSE;
 
     @Override
     public String getPassword() {
@@ -107,6 +113,14 @@ public class User implements UserDetails {
 
     public void setUserRole(UserRole userRole) {
         this.userRole = userRole;
+    }
+
+    public boolean isDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(boolean deleted) {
+        this.deleted = deleted;
     }
 
     

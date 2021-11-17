@@ -1,6 +1,8 @@
 package com.commsult.dto;
 
 public class StockRequest {
+
+    private Long id;
     
     private String name;
 
@@ -9,6 +11,14 @@ public class StockRequest {
     private Double price;
 
     private String description;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

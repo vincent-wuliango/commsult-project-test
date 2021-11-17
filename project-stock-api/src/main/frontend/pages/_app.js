@@ -1,8 +1,9 @@
 import Layout from '../layouts/Layout'
-import '../../styles/global.css'
+import '../styles/global.css'
 import Head from 'next/head'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-function MyApp({ Component, pageProps }) {
+function App({ Component, pageProps }) {
     return(
     <>
         <Head>
@@ -15,4 +16,4 @@ function MyApp({ Component, pageProps }) {
     )
 }
 
-export default MyApp
+export default App

@@ -2,8 +2,8 @@ package com.commsult.models.repos;
 
 import com.commsult.models.entities.Stock;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StockRepo extends CrudRepository<Stock, Long> {
+public interface StockRepo extends JpaRepository<Stock, Long> {
     
 }

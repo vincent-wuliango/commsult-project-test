@@ -4,7 +4,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-public class UserData {
+public class UserRequest {
     
     @NotEmpty(message = "Username is required")
     @NotNull(message = "Username is required")

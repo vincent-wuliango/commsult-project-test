@@ -1,16 +1,20 @@
 package com.commsult.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import com.commsult.dto.ResponseData;
-import com.commsult.dto.UserData;
+import com.commsult.dto.UserRequest;
 import com.commsult.models.entities.User;
+import com.commsult.models.repos.UserRepo;
 import com.commsult.services.UserService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +27,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/v1")
 public class UserController {
     
     @Autowired
@@ -32,10 +36,18 @@ public class UserController {
     @Autowired
     private ModelMapper modelMapper;
 
-    
+    @GetMapping("/users")
+    public List<User> getAllUsers() {
+        return userService.findAll();
+    }
 
-    @PostMapping("/register")
-    public ResponseEntity<ResponseData<User>> register(@Valid @RequestBody UserData userData, Errors errors) { 
+    @GetMapping("/users/{id}")
+    public User findUserById(@PathVariable("id") Long id) {
+        return userService.findById(id);
+    }
+
+    @PostMapping("/users/register")
+    public ResponseEntity<ResponseData<User>> register(@Valid @RequestBody UserRequest userData, Errors errors) { 
 
         ResponseData<User> responseData = new ResponseData<>();
 
@@ -56,18 +68,8 @@ public class UserController {
         return ResponseEntity.ok(responseData);
     }
 
-    @GetMapping
-    public Iterable<User> findAll() {
-        return userService.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public User findOne(@PathVariable("id") Long id) {
-        return userService.findOne(id);
-    }
-
-    @PutMapping
-    public ResponseEntity<ResponseData<User>> update(@Valid @RequestBody UserData userData, Errors errors) { 
+    @PutMapping("/users/update")
+    public ResponseEntity<ResponseData<User>> update(@Valid @RequestBody UserRequest userData, Errors errors) { 
 
         ResponseData<User> responseData = new ResponseData<>();
 
@@ -87,8 +89,8 @@ public class UserController {
         return ResponseEntity.ok(responseData);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/users/delete/{id}")
     public void removeOne(@PathVariable("id") Long id) {
-        userService.removeOne(id);
+        userService.removeById(id);
     }
 }

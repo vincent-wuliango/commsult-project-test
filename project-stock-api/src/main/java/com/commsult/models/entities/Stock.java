@@ -16,7 +16,7 @@ import org.hibernate.annotations.Where;
 @Table(name = "stock")
 @SQLDelete(sql = "UPDATE stock SET deleted = true WHERE stock_id=?")
 @Where(clause = "deleted=false")
-public class Stock implements Serializable{
+public class Stock extends BaseEntity<String> implements Serializable{
 
     private static final long serialVersionUID = 1L;
     
@@ -42,6 +42,8 @@ public class Stock implements Serializable{
     public Stock() {
     }
 
+    
+
     public Stock(Long id, String name, Long quantity, Double price, String description) {
         this.id = id;
         this.name = name;
@@ -49,6 +51,7 @@ public class Stock implements Serializable{
         this.price = price;
         this.description = description;
     }
+
 
     public Long getId() {
         return id;

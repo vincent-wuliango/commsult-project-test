@@ -8,11 +8,11 @@ module.exports = {
     return [
       {
         source: "/login",
-        destination: "/auth/login",
+        destination: "/pages/auth/login",
       },
       {
         source: "/register",
-        destination: "/auth/register",
+        destination: "/pages/auth/register",
       },
     ];
   },

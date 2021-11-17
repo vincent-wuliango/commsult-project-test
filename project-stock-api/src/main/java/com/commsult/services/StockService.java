@@ -1,5 +1,7 @@
 package com.commsult.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -17,11 +19,15 @@ public class StockService {
     @Autowired
     private StockRepo stockRepo;
 
-    public Stock save(Stock stock) {
+    public Stock addStock(Stock stock) {
         return stockRepo.save(stock);
     }
 
-    public Stock findOne(Long id) {
+    public Stock updateStock(Stock stock) {
+        return stockRepo.save(stock);
+    }
+
+    public Stock findById(Long id) {
         Optional<Stock> stock = stockRepo.findById(id);
         if(!stock.isPresent()) {
             return null;
@@ -29,11 +35,11 @@ public class StockService {
         return stock.get();
     }
 
-    public Iterable<Stock> findAll() {
+    public List<Stock> findAll() {
         return stockRepo.findAll();
     }
 
-    public void removeOne(Long id) {
+    public void removeById(Long id) {
         stockRepo.deleteById(id);
     }
 }

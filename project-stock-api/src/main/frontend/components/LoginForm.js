@@ -30,14 +30,10 @@ const theme = createTheme();
 export default function LoginForm(props) {
   const[email,setEmail]=React.useState('')
   const[password,setPassword]=React.useState('')
-  const handleSubmit = (event) => {
+  async function handleSubmit(event) {
     event.preventDefault();
     const user={email, password}
     console.log({user});
-    // fetch("localhost:3030/users/login"), {
-    //   method:"POST",
-    //   headers:
-    // }
   };
 
   return (
@@ -83,7 +79,7 @@ export default function LoginForm(props) {
                 autoComplete="email"
                 autoFocus
                 value={email}
-                onChange={(e)=>setEmail(e.target.value)}
+                // onChange={(e)=>setEmail(e.target.value)}
               />
               <TextField
                 margin="normal"
@@ -95,7 +91,7 @@ export default function LoginForm(props) {
                 id="password"
                 autoComplete="current-password"
                 value={password}
-                onChange={(e)=>setPassword(e.target.value)}
+                // onChange={(e)=>setPassword(e.target.value)}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}

@@ -1,5 +1,6 @@
 package com.commsult.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -24,6 +25,13 @@ public class UserService implements UserDetailsService{
     @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
+    @Override
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepo.findByEmail(email)
+        .orElseThrow(() -> 
+        new UsernameNotFoundException(String.format("%s not found", email)));
+    }
+
     public User registerUser(User user) {
         boolean userExist = userRepo.findByEmail(user.getEmail()).isPresent();
 
@@ -38,27 +46,20 @@ public class UserService implements UserDetailsService{
         return userRepo.save(user);
     }
 
-    public User findOne(Long id) {
-        Optional<User> stock = userRepo.findById(id);
-        if(!stock.isPresent()) {
+    public User findById(Long id) {
+        Optional<User> user = userRepo.findById(id);
+        if(!user.isPresent()) {
             return null;
         }
-        return stock.get();
+        return user.get();
     }
 
-    public Iterable<User> findAll() {
+    public List<User> findAll() {
         return userRepo.findAll();
     }
 
-    public void removeOne(Long id) {
+    public void removeById(Long id) {
         userRepo.deleteById(id);
     }
 
-    @Override
-    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        
-        return userRepo.findByEmail(email)
-        .orElseThrow(() -> 
-        new UsernameNotFoundException(String.format("%s not found", email)));
-    }
 }
