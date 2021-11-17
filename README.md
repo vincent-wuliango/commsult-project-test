@@ -1,4 +1,12 @@
 # Commsult Project Test
+
+## Run Program
+- Backend:
+  - Use CLI(Git, CMD, etc): ``` mvn clean install``` >> ```mvn spring-boot:run ```
+- Frontend:
+  - Use CLI(Git, CMD, etc): ```cd src/main/frontend``` >> ```npm install``` >> ```npm run dev```
+- Stop program: ```Ctrl + C```
+
 ## Specification
 - React Framework: [Next js](https://nextjs.org/)
 - Java Framework: [Spring boot](https://spring.io/projects/spring-boot)
