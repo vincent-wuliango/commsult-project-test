@@ -1,5 +1,5 @@
 # Commsult Project Test
-## Spec
+## Specification
 - React Framework: [Next js](https://nextjs.org/)
 - Java Framework: [Spring boot](https://spring.io/projects/spring-boot)
   - Plugins:
