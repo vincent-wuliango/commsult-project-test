@@ -24,4 +24,7 @@
 ![](screenshoot/stocks.png)
 
 ## References
+- [Commsult](https://www.google.com/url?sa=i&url=https%3A%2F%2Fid.linkedin.com%2Fcompany%2Fcommsult-ag&psig=AOvVaw2uZhN2vgnakrJCVNZPh9gL&ust=1637253231638000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCKDbpd3pn_QCFQAAAAAdAAAAABAi)
 - Markdown Cheatsheet by [Adam Priatchard](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
+- [Freepik](https://www.freepik.com)
+- [Colorhunt](https://colorhunt.co/palettes/popular)
