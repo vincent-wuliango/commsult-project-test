@@ -12,7 +12,7 @@
  
 - Database: [MySQL](https://www.mysql.com/)
 - UI Library: [Material UI](https://mui.com/)
-- Other tools:
+- Dev Tools:
   - [VSCode](https://code.visualstudio.com/)
   - [Postman](https://www.postman.com/)
   - [Docker](https://www.docker.com/)
