@@ -38,20 +38,22 @@ public class StockController {
     @Autowired
     private ModelMapper modelMapper;
 
+    // @GetMapping("/stocks")
+    // public ResponseEntity<ResponseData<List<StockResponse>>> getAllStocks() {
+    //         ResponseData<List<StockResponse>> responseData = new ResponseData<>();
+    //         List<StockResponse> listStock = new ArrayList<>();
+    //         stockService.findAll().forEach(stock -> {
+    //             listStock.add(modelMapper.map(stock, StockResponse.class));
+    //         });
+    //         responseData.setStatus(true);
+    //         responseData.setPayload(listStock);
+    //         return ResponseEntity.ok(responseData);
+    //     }
+
     @GetMapping("/stocks")
-    public ResponseEntity<ResponseData<List<StockResponse>>> getAllStocks() {
-            ResponseData<List<StockResponse>> responseData = new ResponseData<>();
-            List<StockResponse> listStock = new ArrayList<>();
-            stockService.findAll().forEach(stock -> {
-                listStock.add(modelMapper.map(stock, StockResponse.class));
-            });
-            responseData.setStatus(true);
-            responseData.setPayload(listStock);
-            return ResponseEntity.ok(responseData);
-        }
-    // public List<Stock> getAllStocks() {
-    //     return stockService.findAll();
-    // }
+    public List<Stock> getAllStocks() {
+        return stockService.findAll();
+    }
 
     @GetMapping("/stocks/{id}")
     public Stock findStockById(@PathVariable("id") Long id){

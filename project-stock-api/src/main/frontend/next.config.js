@@ -7,12 +7,12 @@ module.exports = {
   async rewrites() {
     return [
       {
-        source: "/login",
-        destination: "/pages/auth/login",
+        source: "/home",
+        destination: "/",
       },
       {
-        source: "/register",
-        destination: "/pages/auth/register",
+        source: "/login",
+        destination: "/auth/", 
       },
     ];
   },

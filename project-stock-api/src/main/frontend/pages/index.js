@@ -1,10 +1,10 @@
-import ListStockComponent from "../components/ListStockComponent";
+import LoginForm from '../components/LoginForm'
+import Link from 'next/link'
 
-function StockList({ stocks }) {
+  const Login = () => {
     return(
-      <div className="container">
-        <ListStockComponent/>
-      </div>
+        <LoginForm/>
     )
   }
-  export default StockList
+  
+  export default Login

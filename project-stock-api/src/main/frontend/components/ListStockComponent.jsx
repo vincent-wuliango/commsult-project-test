@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import StockService from '../services/StockService';
-
+import ButtonEditDelete from './ButtonComponent';
+import Button from '@mui/material/Button';
 
 class ListStockComponent extends Component {
     constructor(props) {
@@ -20,6 +21,12 @@ class ListStockComponent extends Component {
         return (
             <div> <br />
                 <h1 className="text-center">Stock List</h1> <br />
+                <div style={{marginBottom: "10px"}}>
+                <Button variant="contained" 
+                onClick={() => {
+                    alert('clicked');
+                }} size="medium">Add</Button>
+                </div>
                 <div className="row">
                     <table className="table table-striped table-bordered">
                         <thead>
@@ -43,6 +50,9 @@ class ListStockComponent extends Component {
                                     <td>{ stock.quantity }</td>
                                     <td>{ stock.price }</td>
                                     <td>{ stock.description }</td>
+                                    <td>
+                                        <ButtonEditDelete/>
+                                    </td>
                                 </tr>
                             )
                             }

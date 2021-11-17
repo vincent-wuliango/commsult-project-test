@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "next-auth": "^3.29.0",
+    "next-link": "^2.0.0"
+  }
+}
